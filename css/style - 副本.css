@@ -1,0 +1,383 @@
+/* 声明全局属性 */
+:root {
+  --blue: #9ec4de;
+  --black: #cbcbcb;
+  --white: #fff;
+  --light-color: #f3f3f3;
+  --light-bg: #eee;
+  --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 设置页面元素的默认样式 */
+* {
+  font-family: "Microsoft YaHei", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 去掉轮廓(一般为input标签轮廓) */
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+/* 设置滚动条整体部分样式 */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 设置滚动条的轨道样式 */
+html::-webkit-scrollbar-track {
+  background: var(--blue);
+}
+
+/* 设置滚动条里面的上下移动小方块的样式 */
+html::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 50px;
+}
+
+/* ==========设置通用属性============== */
+.title{
+  color: var(--blue);
+  font-size: 25px;
+}
+
+
+/* ==============设置container主体容器样式============ */
+.container{
+  display: flex;
+
+  background-image: linear-gradient(45deg, #0f2027,#203a43,#2c5364);
+
+  /* 后续需注释掉 */
+  /* height: 1000px; */
+
+  padding: 100px 10%;
+  gap: 10px;
+}
+
+/* ============设置左侧个人概要profile的样式============== */
+.container .profile{
+  flex: 1;
+  /* height: 300px; */
+  align-self: flex-start;
+
+  /* 添加粘性定位 */
+  position: sticky;
+  top: 20px;
+  left: 0;
+
+  background-image: linear-gradient(45deg,#aa4b6b,#6b6b83)   ; 
+  /* border-radius: 30px; */
+  padding: 20px 30px;
+  text-align: center;
+  border: 1px solid var(--light-bg);
+  
+}
+
+.container .profile img{
+  width: 150px;
+  height: 150px;
+
+  border: 4px solid var(--black);
+
+  border-radius: 50%;
+}
+
+.container .profile h3{
+  margin: 5px 0;
+  color: var(--black);
+}
+
+.container .profile p{
+  margin: 5px 0;
+  color: var(--black);
+  font-size: 15px;
+}
+
+.container .profile .icon{
+  margin: 5px 0;
+  padding: 5px 0;
+}
+
+.container .profile i{
+  width: 30px;
+  height: 30px;
+  gap: 5px;
+  
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  font-size: 15px;
+  color: var(--black);
+}
+
+.container .profile i:hover{
+  color: var(--light-bg);
+  border: 1px solid var(--light-bg);
+}
+
+.container .profile .contact{
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+
+  justify-content: center;
+  line-height: 30px;
+
+  border-radius: 5px;
+  background: var(--black);
+  color: var(--light-bg);
+  box-shadow: var(--box-shadow);
+}
+
+.container .profile .contact:hover{
+  color: var(--black);
+  background: var(--light-bg);
+}
+/* ============设置右侧详细信息information的样式============== */
+
+.container .information{
+  flex: 3;
+  /* height: 1000px; */
+
+  background-image: linear-gradient(45deg,#6b6b83,#3b8d99);
+  border: 1px solid var(--white);
+  padding: 30px;
+}
+
+/* ===================个人介绍模块========== */
+.container .information .about{
+  margin: 10px 0;
+}
+.container .information .about p{
+  line-height: 2.5;
+  color: var(--light-color);
+
+}
+
+/* 使用网格布局 */
+.container .information .box-container {
+  margin: 20px 0;
+  display: grid;
+
+  grid-template-columns: auto auto;
+
+  grid-template-rows: auto auto auto auto;
+
+  gap: 20px;
+}
+
+.container .information .box-container .box{
+  color: var(--black);
+  font-weight: 700;
+}
+
+.container .information .box-container span{
+  color: var(--light-color);
+  font-weight: 700;
+}
+
+/* ============技术栈模块=============== */
+.container .information .service{
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.container .information .service .box{
+  flex: 100px;
+
+  padding: 20px 20px;
+  text-align: center;
+  
+  background: var(--light-bg);                               
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+
+}
+
+.container .information .service .box img{
+  /* 宽度会等比例缩放 */
+  height: 50px;
+  
+}
+
+.container .information .service .box h4{
+  margin-top: 10px;
+  color: #717171;
+}
+
+/* ===================技术熟练度模块=============== */
+.container .information .skills{
+  margin: 20px 0;
+  gap: 15px;
+  display: grid;
+
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto; 
+}
+
+.container .information .skills .box{
+  flex: 300px; 
+}
+
+/* 设置两个文本分别占两头, 可以h3套两个span, 再用flex布局space-between一下即可 */
+.container .information .skills .box h3{
+  /* display: inline-block; */
+  display: flex;
+  justify-content: space-between;
+  color: var(--light-color);
+}
+
+.container .information .skills .box .outer{
+  margin: 10px 0;
+  height: 10px;
+  background: var(--light-bg);
+  border-radius: 10px;
+
+}
+
+.container .information .skills .box .inner{
+  height: 10px;
+  background: var(--blue);
+  border-radius: 10px;
+}
+
+/* =============设置学习工作经历模块=============== */
+.container .information .experience{
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.container .information .experience .left{
+  flex: 50%;
+  padding: 20px;
+  background: var(--light-bg);
+  border-radius: 10px;
+}
+
+.container .information .experience .right{
+  flex: 50%;
+  padding: 20px;
+  background: var(--light-bg);
+  border-radius: 10px;
+}
+
+.container .information .experience h4{
+  color: #717171;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.container .information .experience h3{
+  margin: 10px 0;
+  color: #717171;
+}
+
+.container .information .experience p{
+  margin: 10px 0;
+  color: #717171;
+  font-size: 13px;
+  line-height: 2;
+}
+
+/* ===================联系方式模块================== */
+.container .information .tell{
+  margin: 20px 0;
+}
+
+.container .information .tell .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+.container .information .tell .box-container .box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.container .information .tell .box-container .icon{
+  width: 40px;
+  height: 40px;
+  font-size: 17px;
+  text-align: center;
+  line-height: 40px;
+  color: var(--white);
+  background: var(--blue);
+  border-radius: 50%;
+}
+
+.container .information .tell .box-container .i{
+  
+  margin-left: 15px;
+  text-align: left;
+}
+
+.container .information .tell .box-container h3{
+  color: var(--black);
+}
+
+.container .information .tell .box-container p{
+  margin: 8px 0;
+  color: var(--light-color);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ==================设置媒体查询================= */
+@media (max-width:1000px) {
+  .container{
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .container .profile{
+    position: static;
+
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .container .information{
+    position: static;
+
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+  }
+
+}
+
+@media (max-width:600px) {
+  .container .profile{
+    width: 100%;
+
+    align-self: stretch;
+
+  }
+
+  .container .profile .contact{
+    width: 100%;
+  }
+
+  .container .information .about p{
+    font-size: 12px;
+  }
+
+  .container .information .experience p{
+    font-size: 12px;
+  }
+}
